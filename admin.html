@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 BookStore Admin</title>
+
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo" onclick="location.href='index.html'">📚 BookStore</div>
+
+        <div class="nav-right">
+            <div id="user-area"></div>
+            <a href="index.html">🏠 Trang chủ</a>
+            <a href="admin.html">⚙️ Admin</a>
+            <a href="order.html">📦 Đơn hàng</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h2>Quản lý sản phẩm</h2>
+            <button class="add-btn" onclick="toggleForm()">+ Thêm sản phẩm mới</button>
+        </div>
+
+        <!-- FORM THÊM SẢN PHẨM -->
+        <div class="form" id="form">
+            <label>Tên sản phẩm</label>
+            <input id="name" placeholder="Nhập tên sách" type="text">
+
+            <label>Giá (VND)</label>
+            <input id="price" type="number" placeholder="Ví dụ: 120000">
+
+            <label>URL ảnh sản phẩm</label>
+            <input id="image" placeholder="https://..." type="text">
+
+            <label>Thể loại</label>
+            <select id="category">
+                <option value="Truyện tranh">Truyện tranh</option>
+                <option value="Văn học">Văn học</option>
+                <option value="Kỹ năng">Kỹ năng</option>
+            </select>
+
+            <label>Giảm giá (%)</label>
+            <input id="discount" type="number" min="0" max="100" value="0" placeholder="0 - 100">
+
+            <button class="add-btn" onclick="addProduct()" style="margin-top: 10px; width: 100%; padding: 12px;">
+                Lưu sản phẩm
+            </button>
+        </div>
+
+        <!-- BẢNG SẢN PHẨM -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Ảnh</th>
+                    <th>Tên sách</th>
+                    <th>Thể loại</th>
+                    <th>Giá gốc</th>
+                    <th>Giảm giá</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="list"></tbody>
+        </table>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore-compat.js"></script>
+    <script src="config.js"></script>
+
+    <script src="./js/admin.js">
+        
+    </script>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>📚 BookStore</h3>
+                <p>Nền tảng bán sách online uy tín với giá tốt nhất.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Danh mục</h4>
+                <a href="#">Truyện tranh</a>
+                <a href="#">Văn học</a>
+                <a href="#">Kỹ năng sống</a>
+            </div>
+            <div class="footer-col">
+                <h4>Hỗ trợ</h4>
+                <a href="contact.html">Trung tâm trợ giúp</a>
+                <a href="terms.html">Điều khoản dịch vụ</a>
+            </div>
+            <div class="footer-col">
+                <h4>Liên hệ</h4>
+                <p>Email: support@bookstore.com</p>
+                <p>Hotline: 0347 858 829</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 BookStore. All rights reserved.
+        </div>
+    </footer>
+</body>
+
+</html>

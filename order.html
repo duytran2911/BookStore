@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý đơn hàng</title>
+    <link rel="stylesheet" href="./css/order.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <!-- LOGO -->
+        <div class="logo" onclick="location.href='index.html'" style="font-weight: bold;">
+            📚 BookStore
+        </div>
+
+
+        <!-- SEARCH (GIỮ NGUYÊN) -->
+        <input id="search" class="search" placeholder="Tìm sách...">
+
+        <!-- RIGHT AREA -->
+        <div class="nav-right">
+
+            <!-- USER -->
+            <div id="user-area" class="user-area"></div>
+
+            <!-- ADMIN -->
+            <a href="index.html" style="color:white;text-decoration:none; font-weight: bold; ">🏠 Trang chủ</a>
+            <a href="admin.html" style="color:white;text-decoration:none; font-weight: bold; ">⚙️ Admin</a>
+
+            <!-- ORDER -->
+            <a href="order.html" style="color:white;text-decoration:none; font-weight: bold;">📦 Đơn hàng</a>
+
+
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="container">
+
+        <h1 style="font-weight: bold;">📦 Đơn hàng</h1>
+
+        <!-- STATS -->
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Tổng đơn</h3>
+                <div id="total-orders" class="stat-value">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Đang xử lý</h3>
+                <div id="processing-orders" class="stat-value">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Doanh thu</h3>
+                <div id="total-revenue" class="stat-value">0₫</div>
+            </div>
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã đơn</th>
+                        <th>Khách hàng</th>
+                        <th>Sản phẩm</th>
+                        <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
+                        <th>Ngày</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody id="order-table-body"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore-compat.js"></script>
+    <script src="config.js"></script>
+
+    <script src="./js/order.js">
+        
+    </script>
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- Cột 1 -->
+            <div class="footer-col">
+                <h3>📚 BookStore</h3>
+                <p>Nền tảng bán sách online giá tốt, giao nhanh, uy tín.</p>
+            </div>
+
+            <!-- Cột 2 -->
+            <div class="footer-col">
+                <h4>Danh mục</h4>
+                <a href="#">Truyện tranh</a>
+                <a href="#">Văn học</a>
+                <a href="#">Kỹ năng</a>
+            </div>
+
+            <!-- Cột 3 -->
+            <div class="footer-col">
+                <h4>Hỗ trợ</h4>
+                <a href="contact.html">Trung tâm trợ giúp</a>
+                <a href="terms.html">Điều khoản dịch vụ</a>
+            </div>
+
+            <!-- Cột 4 -->
+            <div class="footer-col">
+                <h4>Liên hệ</h4>
+                <p>Email: support@bookstore.com</p>
+                <p>Hotline: 0347 858 829</p>
+                <p>Việt Nam</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 BookStore. All rights reserved.
+        </div>
+
+    </footer>
+</body>
+
+</html>

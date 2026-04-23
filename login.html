@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <div class="navbar">
+        <div class="logo" onclick="location.href='index.html'" style="font-weight: bold;">
+            📚 BookStore
+        </div>
+        <div>
+            <a href="index.html" style="font-weight:bold;">🏠 Trang chủ</a>
+            <a href="register.html" style="font-weight:bold;">👤 Đăng ký</a>
+        </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="container">
+
+        <div class="form-box">
+
+            <!-- LEFT -->
+            <div class="left">
+                <h2>Chào mừng!</h2>
+                <p>Đăng nhập để mua sách 📚</p>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="right">
+
+                <h2>Đăng nhập</h2>
+
+                <form id="login-form">
+
+                    <div class="input-group">
+                        <input type="email" id="inp-email" placeholder="Email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="inp-pwd" placeholder="Mật khẩu" required>
+                    </div>
+
+                    <button type="submit">Đăng nhập</button>
+
+                    <div class="extra">
+                        <a href="register.html">Chưa có tài khoản? Đăng ký</a>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-auth-compat.js"></script>
+    <script src="config.js"></script>
+
+    <script src="./js/login.js">
+        
+    </script>
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- Cột 1 -->
+            <div class="footer-col">
+                <h3>📚 BookStore</h3>
+                <p>Nền tảng bán sách online giá tốt, giao nhanh, uy tín.</p>
+            </div>
+
+            <!-- Cột 2 -->
+            <div class="footer-col">
+                <h4>Danh mục</h4>
+                <a href="#">Truyện tranh</a>
+                <a href="#">Văn học</a>
+                <a href="#">Kỹ năng</a>
+            </div>
+
+            <!-- Cột 3 -->
+            <div class="footer-col">
+                <h4>Hỗ trợ</h4>
+                <a href="contact.html">Trung tâm trợ giúp</a>
+                <a href="terms.html">Điều khoản dịch vụ</a>
+            </div>
+
+            <!-- Cột 4 -->
+            <div class="footer-col">
+                <h4>Liên hệ</h4>
+                <p>Email: support@bookstore.com</p>
+                <p>Hotline: 0347 858 829</p>
+                <p>Việt Nam</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 BookStore. All rights reserved.
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

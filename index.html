@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 BookStore - Mua Sách Online Giá Tốt</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo" onclick="location.href='index.html'">📚 BookStore</div>
+
+        <input id="search" class="search" placeholder="Tìm sách theo tên..." onkeyup="renderProducts()">
+
+        <div style="display:flex; align-items:center; gap:15px;">
+            <div id="user-area" style="color:white; font-weight:bold;"></div>
+            <a href="index.html" style="color:white; text-decoration:none; font-weight:bold;">🏠 Trang chủ</a>
+            <a href="admin.html" style="color:white; text-decoration:none; font-weight:bold;">⚙️ Admin</a>
+            <a href="order.html" style="color:white; text-decoration:none; font-weight:bold;">📦 Đơn hàng</a>
+
+            <div onclick="toggleCart()" style="cursor:pointer; position:relative; font-size:22px;">
+                🛒
+                <span id="cart-count"
+                    style="background:white; color:#ee4d2d; border-radius:50%; padding:2px 7px; font-size:12px; position:absolute; top:-8px; right:-8px;">0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- BANNER -->
+    <div class="banner">
+        <div class="banner-content">
+            <h1>📚 BookStore</h1>
+            <p>Bạn đang chán? Hãy tìm một cuốn sách phù hợp với sở thích của bạn!</p>
+            <button onclick="document.getElementById('grid').scrollIntoView({behavior: 'smooth'})">
+                Mua ngay
+            </button>
+        </div>
+
+        <div class="banner-images">
+            <img src="./image/banner00.jpg" class="active">
+            <img src="./image/banner01.jpg" class="active">
+            <img src="./image/banner02.jpg" class="active">
+            <img src="./image/banner03.jpg" class="active">
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <h3>Danh mục</h3>
+            <button onclick="setCategory('all')" id="cat-all" class="active">Tất cả sách</button>
+            <button onclick="setCategory('Truyện tranh')" id="cat-truyen">Truyện tranh</button>
+            <button onclick="setCategory('Văn học')" id="cat-van">Văn học</button>
+            <button onclick="setCategory('Kỹ năng')" id="cat-ky">Kỹ năng</button>
+
+            <hr style="margin:15px 0;">
+            <h3>Sắp xếp</h3>
+            <button onclick="setSort('low')">Giá tăng dần</button>
+            <button onclick="setSort('high')">Giá giảm dần</button>
+        </div>
+
+        <!-- PRODUCT GRID -->
+        <div class="product-grid" id="grid"></div>
+    </div>
+
+    <!-- CART MODAL -->
+    <div class="cart-modal" id="cart">
+        <div class="cart-header">
+            <h3>Giỏ hàng của bạn</h3>
+            <button onclick="toggleCart()"
+                style="background:none; border:none; color:white; font-size:24px; cursor:pointer;">×</button>
+        </div>
+
+        <div class="cart-items" id="cart-items"></div>
+
+        <div class="cart-total" id="cart-total">Tổng tiền: 0₫</div>
+
+        <button onclick="checkout()" id="checkout-btn" class="checkout-btn">
+            <span class="btn-text">Thanh toán ngay</span>
+            <span class="btn-loader"></span>
+        </button>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore-compat.js"></script>
+    <script src="config.js"></script>
+
+    <script src="./js/index.js">
+        
+    </script>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>📚 BookStore</h3>
+                <p>Nền tảng bán sách online uy tín với giá tốt nhất và giao hàng nhanh chóng.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Danh mục</h4>
+                <a href="#">Truyện tranh</a>
+                <a href="#">Văn học</a>
+                <a href="#">Kỹ năng sống</a>
+            </div>
+            <div class="footer-col">
+                <h4>Hỗ trợ</h4>
+                <a href="contact.html">Trung tâm trợ giúp</a>
+                <a href="terms.html">Điều khoản dịch vụ</a>
+            </div>
+            <div class="footer-col">
+                <h4>Liên hệ</h4>
+                <p>Email: support@bookstore.com</p>
+                <p>Hotline: 0347 858 829</p>
+                <p>Địa chỉ: Việt Nam</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 BookStore. All rights reserved.
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - BookStore</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial
+        }
+
+        body {
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* BOX */
+        .contact-box {
+            width: 800px;
+            display: flex;
+            gap: 20px;
+        }
+
+        /* FORM */
+        .contact-form {
+            flex: 1;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2 {
+            color: #ee4d2d;
+            margin-bottom: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            background: #ee4d2d;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* INFO */
+        .contact-info {
+            width: 250px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3 {
+            color: #ee4d2d;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        /* BACK BTN */
+        .back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            background: #ee4d2d;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="index.html" class="back">← Quay lại</a>
+
+    <div class="contact-box">
+
+        <!-- FORM -->
+        <div class="contact-form">
+            <h2>📩 Liên hệ</h2>
+
+            <input id="name" placeholder="Tên của bạn">
+            <input id="email" placeholder="Email">
+            <textarea id="message" rows="5" placeholder="Nội dung..."></textarea>
+
+            <button onclick="send()">Gửi liên hệ</button>
+        </div>
+
+        <!-- INFO -->
+        <div class="contact-info">
+            <h3>Thông tin</h3>
+            <p>📧 support@bookstore.com</p>
+            <p>📞 0347 858 829</p>
+            <p>📍 Việt Nam</p>
+        </div>
+
+    </div>
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore-compat.js"></script>
+    <script src="config.js"></script>
+
+    <script>
+        function send() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            if (!name || !email || !message) {
+                alert("Nhập đủ thông tin!");
+                return;
+            }
+
+            db.collection("contacts").add({
+                name,
+                email,
+                message,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+
+            alert("Gửi thành công!");
+
+            name.value = "";
+            email.value = "";
+            message.value = "";
+        }
+    </script>
+
+</body>
+
+</html>
